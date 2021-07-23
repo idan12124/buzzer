@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
 
-@Entity("division")
-export default class DvisionEntity extends BaseEntity {
+@Entity()
+export default class Division extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 }
