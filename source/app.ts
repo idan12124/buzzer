@@ -7,6 +7,8 @@ import { createConnection } from "typeorm";
 import division from "./entitys/division";
 import Agent from "./entitys/agent";
 import Message from "./entitys/message";
+import Dispatch from "./entitys/dispatch";
+import dispatcher from "./dispatcher";
 
 const app = express();
 
@@ -25,9 +27,10 @@ createConnection({
   database: "test",
   logging: true,
   synchronize: true,
-  entities: [division, Agent, Message],
+  entities: [division, Agent, Message, Dispatch],
 }).then(() => {
-  app.listen(5000, () => {
+  app.listen(5000, async () => {
     console.log("listeen on port 5000");
+    setInterval(await dispatcher, 900000);
   });
 });

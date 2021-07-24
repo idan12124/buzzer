@@ -2,7 +2,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   BaseEntity,
-  OneToOne,
   JoinColumn,
   Column,
   ManyToOne,
@@ -20,7 +19,10 @@ export default class Message extends BaseEntity {
   @Column()
   done: boolean;
 
+  @Column({ nullable: true })
+  divisionId: number;
+
   @ManyToOne(() => Division)
-  @JoinColumn()
-  divisionId: Number;
+  @JoinColumn({ name: "divisionId" })
+  divisionID: Number;
 }

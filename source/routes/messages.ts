@@ -14,7 +14,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   try {
-    const id: Number = +req.body.divisionId;
+    const id: number = +req.body.divisionId;
     const content: String = req.body.content || "";
     const done: boolean = req.body.done || false;
     console.log(req.body);

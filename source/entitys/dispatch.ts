@@ -2,12 +2,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   BaseEntity,
-  OneToOne,
   JoinColumn,
   Column,
   ManyToOne,
 } from "typeorm";
-import Division from "./division";
+import Agent from "./agent";
 import Message from "./message";
 
 @Entity()
@@ -18,10 +17,14 @@ export default class Dispatch extends BaseEntity {
   @Column({ type: "date" })
   timestamp: String;
 
+  @Column({ nullable: true })
+  agentId: number;
+
   @ManyToOne(() => Message)
+  @JoinColumn()
   messageId: Number;
 
-  @ManyToOne(() => Division)
+  @ManyToOne(() => Agent)
   @JoinColumn()
-  divisionId: Number;
+  agentID: number;
 }
