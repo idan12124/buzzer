@@ -61,6 +61,7 @@ typeorm_1.createConnection({
     type: "postgres",
     url: process.env.DATABASE_URL,
     synchronize: true,
+    ssl: { rejectUnauthorized: false },
     entities: [division_2.default, agent_2.default, message_1.default, dispatch_2.default],
 }).then(function () {
     app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
