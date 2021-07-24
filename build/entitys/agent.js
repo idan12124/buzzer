@@ -39,10 +39,14 @@ var Agent = /** @class */ (function (_super) {
         __metadata("design:type", Number)
     ], Agent.prototype, "id", void 0);
     __decorate([
+        typeorm_1.Column({ nullable: true }),
+        __metadata("design:type", Number)
+    ], Agent.prototype, "divisionId", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return division_1.default; }),
         typeorm_1.JoinColumn(),
         __metadata("design:type", Number)
-    ], Agent.prototype, "divisionId", void 0);
+    ], Agent.prototype, "divisionID", void 0);
     Agent = __decorate([
         typeorm_1.Entity()
     ], Agent);
