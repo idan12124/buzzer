@@ -23,9 +23,7 @@ createConnection({
   type: "postgres",
   url: process.env.DATABASE_URL,
   synchronize: true,
-  extra: {
-    ssl: true,
-  },
+ 
   entities: [division, Agent, Message, Dispatch],
 }).then(() => {
   app.listen(PORT, async () => {
