@@ -16,7 +16,7 @@ export default class Agent extends BaseEntity {
   id: Number;
 
   @Column({ nullable: true })
-  divisionId: Number;
+  divisionId: number;
 
   @ManyToOne(() => Division)
   @JoinColumn({ name: "divisionId" })
