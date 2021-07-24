@@ -28,8 +28,7 @@ createConnection({
   },
   entities: [division, Agent, Message, Dispatch],
 }).then(() => {
-  app.listen(5000, async () => {
-    console.log("listeen on port 5000");
+  app.listen(PORT, async () => {
     setInterval(await dispatcher, 900000);
   });
 });
