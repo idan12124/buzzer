@@ -59,25 +59,15 @@ app.use("/dispatch", dispatch_1.default);
 app.use("/division", division_1.default);
 typeorm_1.createConnection({
     type: "postgres",
-    url: "postgres://weahxkqvxopzks:e6ddbff5046b6c0be5f943f352b41fe9ce600ad9297837cccf4367a7373a8a7c@ec2-54-147-93-73.compute-1.amazonaws.com:5432/d38okb516mk9uk",
-    // host: "localhost",
-    // port: 5432,
-    // username: "postgres",
-    // password: "abc123",
-    // database: "test",
-    // logging: true,
+    url: process.env.DATABASE_URL,
     synchronize: true,
-    extra: {
-        ssl: true,
-    },
     entities: [division_2.default, agent_2.default, message_1.default, dispatch_2.default],
 }).then(function () {
-    app.listen(5000, function () { return __awaiter(void 0, void 0, void 0, function () {
+    app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
         var _a;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    console.log("listeen on port 5000");
                     _a = setInterval;
                     return [4 /*yield*/, dispatcher_1.default];
                 case 1:
