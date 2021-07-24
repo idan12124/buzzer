@@ -15,7 +15,7 @@ router.get("/", async (req: Request, res: Response) => {
 router.post("/", async (req: Request, res: Response) => {
   try {
     const id: Number = +req.body.id;
-    const agent = Agent.create({ divisionId: id });
+    const agent = Agent.create({ divisionID: id });
     await agent.save();
     res.status(200).json(agent);
   } catch (err) {

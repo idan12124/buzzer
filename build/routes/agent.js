@@ -68,7 +68,7 @@ router.post("/", function (req, res) { return __awaiter(void 0, void 0, void 0, 
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 id = +req.body.id;
-                agent = agent_1.default.create({ divisionId: id });
+                agent = agent_1.default.create({ divisionID: id });
                 return [4 /*yield*/, agent.save()];
             case 1:
                 _a.sent();
