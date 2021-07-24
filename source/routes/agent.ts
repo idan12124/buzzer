@@ -14,15 +14,13 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   try {
-    const id = req.body.id;
-    console.log(req.body);
+    const id: Number = +req.body.id;
     const agent = Agent.create({ divisionId: id });
-    console.log(agent);
     await agent.save();
     res.status(200).json(agent);
   } catch (err) {
-    console.log(err.code);
-    res.status(500);
+    console.log(err);
+    res.status(500).send(err.message);
   }
 });
 

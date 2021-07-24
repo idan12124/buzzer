@@ -38,7 +38,7 @@ router.post("/", async (req: Request, res: Response) => {
     res.status(200).json(dvision);
   } catch (err) {
     console.log(err);
-    res.status(500);
+    res.status(500).send(err.message);
   }
 });
 

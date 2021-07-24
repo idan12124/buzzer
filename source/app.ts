@@ -6,11 +6,12 @@ import dispatch_route from "./routes/dispatch";
 import { createConnection } from "typeorm";
 import division from "./entitys/division";
 import Agent from "./entitys/agent";
+import Message from "./entitys/message";
 
 const app = express();
 
 app.use(express.json());
-app.use("/messages", messages_route);
+app.use("/message", messages_route);
 app.use("/agent", agent_route);
 app.use("/dispatch", dispatch_route);
 app.use("/division", division_route);
@@ -24,7 +25,7 @@ createConnection({
   database: "test",
   logging: true,
   synchronize: true,
-  entities: [division, Agent],
+  entities: [division, Agent, Message],
 }).then(() => {
   app.listen(5000, () => {
     console.log("listeen on port 5000");
