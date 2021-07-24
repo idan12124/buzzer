@@ -5,7 +5,8 @@
   "main": "source/app.ts",
   "scripts": {
     "build": "rm -rf build && prettier --write source/ && tsc",
-    "dev": "nodemon build/app.js"
+    "dev": "nodemon build/app.js",
+    "start": "node build/app.js"
   },
   "repository": {
     "type": "git",
