@@ -33,7 +33,7 @@ router.get("/:id", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   try {
-    const dvision = DivisionEntity.create();
+    const dvision: Division = DivisionEntity.create();
     await dvision.save();
     res.status(200).json(dvision);
   } catch (err) {
