@@ -11,6 +11,7 @@ import Dispatch from "./entitys/dispatch";
 import dispatcher from "./dispatcher";
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use("/message", messages_route);
@@ -20,13 +21,11 @@ app.use("/division", division_route);
 
 createConnection({
   type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: "postgres",
-  password: "abc123",
-  database: "test",
-  logging: true,
+  url: process.env.DATABASE_URL,
   synchronize: true,
+  extra: {
+    ssl: true,
+  },
   entities: [division, Agent, Message, Dispatch],
 }).then(() => {
   app.listen(5000, async () => {
